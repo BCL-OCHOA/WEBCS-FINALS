@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FURREVER HOME PAGE</title>
+</head>
+
+<script>
+    function navVisibility(){
+        const navPane = document.getElementById("navpane");
+        const main = document.getElementById("main");
+        const menuLogo = document.getElementById("menu-logo")
+
+        if (navPane.style.visibility === "visible") {
+            navPane.style.visibility = "hidden";
+            navPane.style.display = "none";
+            main.style.display = "inline";
+            document.body.style.marginLeft = "10vw";
+            menuLogo.style.animation = "menuAnimateReverse 1s ease forwards";
+
+        } 
+        else {
+            navPane.style.visibility = "visible";
+            main.style.display = "flex";
+            navPane.style.display = "block";
+            document.body.style.marginLeft = "8.5vw";
+            menuLogo.style.animation = "menuAnimate 1s ease forwards";
+        }
+    }
+
+    function optionVisibility(option) {
+        const sectionMap = {
+            review: 'review-body',
+            blogs: 'blogs-body',
+            quiz: 'quiz-body',
+            adoption: 'adoption-body',
+            faqs: 'faqs-body'
+        };
+    
+        Object.values(sectionMap).forEach(bodyId => {
+            const body = document.getElementById(bodyId);
+            if (body) {
+                body.style.display = "none";
+            }
+        });
+    
+        const selectedBodyId = sectionMap[option];
+        const selectedBody = document.getElementById(selectedBodyId);
+        if (selectedBody) {
+            selectedBody.style.display = "block";
+        }
+    }
+    
+</script>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Concert+One&family=Silkscreen&display=swap');
+
+    body {
+        font-family: "Baloo Bhaijaan 2";
+        background-image: url('https://img.freepik.com/free-vector/flat-design-wildflower-heart-wallpaper_23-2150463380.jpg?t=st=1729779268~exp=1729782868~hmac=38184c93111e7bcc7b4221449a08fe9cc492e3a6020e16643ae65f97ef14c991&w=1380');
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-sizing: border-box;
+        margin: 0 10vw;
+        background-attachment: fixed;
+    }
+
+    #main {
+        display: flex;
+        justify-content: center;
+        background-color: #FFF4E3;
+        height: 100%;
+        width: 82vw;
+    }
+
+    #main-menu {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        background-color: #FFF4E3;
+        height: 100%;
+        width: 82vw;
+    }
+
+    header {
+        display: flex;
+        padding: 20px 20px 20px 0px;
+        justify-content: space-evenly;
+        max-height: 200px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+    }
+
+    nav p, nav img{
+        text-align: center;
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    nav p:hover{
+        padding: 10px 35px 10px 35px;
+        background-color: #FF9624;
+        color: white;
+        transition: 0.5s;
+    }
+
+    nav p {
+        font-weight: bold;
+        color: #FF9624;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 10vw;
+        height: 5vh;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .logo {
+        width: 20vw;
+        height: 15vh;
+        max-width: 400px;
+        object-fit: contain;
+        margin-right: 4%;
+        min-width: 120px;
+        min-height: 120px;
+    }
+
+    .menu-logo {
+        width: 6vw;
+        height: 8vh;
+        max-width: 70px;
+        max-height: 70px;
+        object-fit: contain;
+        min-width: 50px;
+        min-height: 50px;
+        animation: none;
+    }
+
+    @keyframes menuAnimate {
+        0% { transform: rotate(0deg);}
+        100% { transform: rotate(180deg);}
+    }
+
+    @keyframes menuAnimateReverse {
+        0% { transform: rotate(180deg);}
+        100% { transform: rotate(0deg);}
+    }
+
+    #cat-header img {
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .container {
+        overflow: hidden;
+        position: relative;
+        width: 80vw;
+    }
+
+    h1 {
+        position: relative;
+        margin: 80px 0;
+        text-align: center;
+        line-height: 30px;
+        transition: 0.5s;
+        z-index: 99;
+    }
+
+    h1:hover {
+        font-size: 50px;
+        transition: 0.5s;
+        line-height: 45px;
+        z-index: 99;
+    }
+
+    @keyframes floatingStar {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-30px);    
+        }
+
+        100% {
+            transform: translateY(-10);
+        }
+    }
+
+    .star1, .star2, .star3, .star4, .star5, .star6 {
+        width: 22vw;
+        height: auto;
+        position: absolute;
+        z-index: 0;
+        left: 48vw;
+        top: 10vh;
+        animation: floatingStar 2.5s infinite ease-in-out;
+    }
+
+    .star1 {
+        max-width: 400px;
+        height: auto;
+    }
+
+    .star2, .star3, .star4, .star5{
+        width: 9vw;
+        height: auto;
+        left: 70vw;
+        top: 20vh;
+    }
+
+    .star3 {
+        top: 40vh;
+        left: 65vw;
+    }
+
+    .star4 {
+        left: 10vw;
+    }
+
+    .star5 {
+        top: 32vh;
+        left: 0.2vw;
+    }
+
+    .star6 {
+        top: 40vh;
+        left: 11vw;
+        width: 25vw;
+        height: auto;
+
+    }
+
+    #cat-selection {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #cat-selection img {
+        transition: 0.5s;
+        width: 24vw;
+        height: 40vh;
+        min-height: 300px;
+
+    }
+
+    .cat3 {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .cat1 {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    #cat-selection img:hover {
+        filter: brightness(50%);
+        transition: 0.3s;
+    }
+
+    .overlay {
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        margin-left: 12vw;
+        top: 20vh;
+        transform: translate(-50%, -50%);
+        font-size: 3vw;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    @media (max-height: 1000px){
+        .overlay {
+            top: 20vh;
+        }
+    }
+
+    .cat:hover .overlay {
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 30px;
+        background-color: white;
+        width: 38vw;
+        height: 3vh;
+        max-width: 800px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .pet-gallery {
+        transition: 0.5s;
+    }
+
+    .pet-gallery:hover {
+        transition: 0.5s;
+        padding: 30px 75px;
+        font-size: 30px;
+    }
+
+    #options {
+        margin-top: 30px;
+        display: flex;
+        gap: 20px;
+        justify-content: space-evenly;
+    }
+
+    #options p {
+        transition: 0.5s;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 10vw;
+        height: 2vh;
+        padding: 20px 40px;
+        border-radius: 10px;
+        letter-spacing: 3px;
+        cursor: pointer;
+        background-color: #FF9624;
+        color: #FFF4E3;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    #options p:hover {
+        transition: 0.5s;
+        background-color: #FFCB61;
+        padding: 20px 60px;
+    }
+
+    h1, h2 {
+        color: #FF9624;
+    }
+
+    #navpane {
+        border-top-right-radius: 30px;
+        visibility: hidden;
+        display: none;
+        background-color: #FFF4E3;
+        width: 15vw;
+        min-width: 350px;
+        margin: 0 auto;
+        /*transform: translateX(100%); /* Start off-screen */
+        /*transition: transform 0.5s ease; /* Smooth transition */
+    }
+
+    .nav-title h1 {
+        font-size: 55px;
+        background-color: #FF9624;
+        color: white;
+
+    }
+
+    .nav-title {
+        border-top-right-radius: 30px;
+        display: flex;
+        margin-top: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: #FF9624;
+        width: 100%;
+        height: 22vh;
+        max-height: 224px;
+        min-height: 50px;
+        font-size: 55px;
+        background-color: #FF9624;
+        color: white;
+    }
+
+    #navpane p {
+        color: #443628;
+        opacity: 0.8;
+        transition: 0.5s;
+        margin-left: 20%;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 25px;
+    }
+
+    #navpane p:hover {
+        color: #FF9624;
+        transform: 0.4s;
+        padding-left: 30px;
+    }
+
+    #blogs-body, #quiz-body, #faqs-body, #adoption-body, #review-body {
+        display: none;
+    }
+
+    #review1, #review2, #review3, #review4, #review5 {
+        background-color: white;
+        border-radius: 20px;
+        text-align: justify;
+    }
+
+    #review-body p {
+        color: #FF9624;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 0 3vw 1vw;
+    }
+
+    #review-body {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 3vw;
+    }
+
+    #leave-review input {
+        background-color: white;
+        border: none;
+        border-radius: 30px;
+        width: 100%;
+        height: 400px;
+        text-align: center;
+    }
+
+    #leave-review input::placeholder {
+        color: #FF9624;
+        font-family: "Baloo Bhaijaan 2";
+        font-weight: bold;
+        font-size: 20px;
+        opacity: 0.3;
+    }
+
+    #leave-review {
+        width: 60%;
+        text-align: center;
+    }
+
+    #inner-reviews {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    #leave-review h2 {
+        margin-top: 0;
+        margin: 0 auto;
+        font-size: 40px;
+        cursor: default;
+    }
+
+    #leave-review button {
+        background-color:#FF9624;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-family: "Baloo Bhaijaan 2";
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 20px;
+        height: 50px;
+        width: 35%;
+    }
+
+    .inner-big-review {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #review1 {
+        max-width: 905px;
+    }
+
+    .container1, .container2 {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #inner-body {
+        margin-top: 40px;
+        font-weight: bold;
+        color: rgb(43, 35, 29);
+        text-align: center;
+        font-size: 20px;
+    }
+
+    #inner-body img {
+        width: 35vh;
+        height: 30vh;
+        opacity: 0.9;
+    }
+
+    .container1 {
+        gap: 20px;
+    }
+
+    .container2 {
+        gap: 20px;
+    }
+
+    #blogs-body h2 {
+        background: none;
+        font-size: 60px;
+    }
+
+    .post1, .post2, .post3, .post4, .post5 {
+        background-color: white;
+        padding: 1.5vw;
+        border-radius: 20px;
+    }
+    
+
+    .post4 {
+        margin-top: 35px;
+    }
+
+    .usernames {
+        color: #FF9624;
+        font-weight: bold;
+    }
+
+    #quiz-body h2, #faqs-body h2{
+        background: none;
+        font-size: 60px;
+        margin-bottom: 40;
+        width: 100%;
+    }
+
+    .heading2 {
+        margin-top: 100px;
+        background: none;
+        font-size: 50px;
+        width: 100%;
+        text-align: center;
+        z-index: 99;
+        margin-top: 230px;
+        position: absolute;
+        color: white;
+
+    }
+
+    #quiz-body video {
+        width: 100%;
+        height: auto;
+    }
+
+    #adoption-body {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        font-size: 25px;
+    }
+
+    #steps, #contact {
+        font-weight: bold;
+    }
+
+    .step {
+        display: flex;
+    }
+
+    .step p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 30px;
+        width: 100%;
+    }
+
+    .num {
+        margin-top: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFCB61;
+        color: white;
+        width: 6vw;
+        height: 6vh;
+        max-width: 100px;
+        min-width: 100px;
+        font-size: 45px;
+    }
+
+    .adoption-container {
+        border-radius: 20px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .detail {
+        background-color: white;
+        color: #FF9624;
+        padding: 2vh 5vw;
+        border-radius: 20px;
+    }
+
+    #steps {
+        max-width: 1000px;
+    }
+
+    .adoptionform, .important{
+        background-color: white;
+        color: #FFCB61;
+        margin-left: 160px;
+        border-radius: 10px;
+    }
+
+    .adoptionform, .important{
+        border-radius: 20px;
+        background-color: #FFCB61;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .adoptionform p {
+        border-radius: 0;
+    }
+
+    #contact {
+        border-radius: 20px;
+        margin-top: 24px;
+        background-color: white;
+        width: 70%;
+        margin-left: 50px;
+    }
+
+    #contact h3 {
+        color: #FF9624;
+        font-size: 60px;
+    }
+
+    #contact p {
+        text-align: left;
+        padding: 20px;
+        font-size: 25px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+    }
+
+    .important {
+        display: flex;
+        text-align: center;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+        height: 4vh;
+    }
+
+    #adoption-body h3, #faqs-body h2 {
+        background: none;
+        font-size: 60px;
+        width: 100%;
+        color: #FF9624;
+    }
+
+    .faq-container {
+        display: flex;
+        gap: 20px;
+        justify-content: space-evenly;
+        margin: 0 50px;
+    }
+
+    .q1 {
+        background-color: white;
+        padding: 1vh 2vw;
+        margin-bottom: 20px;
+        font-weight: bold;
+        border-radius: 20px;
+        
+    }
+
+    .q1 h3 {
+        font-size: 40px;
+        color: #FF9624;
+    }
+
+    .q1 p {
+        font-weight: bold;
+        font-size: 22px;
+        text-align: justify;
+        color:#443628;
+    }
+
+    #faqs-body h2 {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        width: 1500px;
+        text-align: center;
+    }
+
+    #faqs-body form {
+        text-align: center;
+        width: 100%;
+    }
+
+    #faqs-body input {
+        text-align: center;
+        padding: 10px 20px;
+        width: 75%;
+        border: none;
+        height: 7vh;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    #faqs-body input::placeholder{
+        color: #FF9624;
+        opacity: 0.5;
+        font-family: "Baloo Bhaijaan 2";
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .q-button button{
+        transition: 0.5s;
+        border: none;
+        background-color: #FF9624;
+        color: white;
+        font-weight: bold;
+        width: 20.5%;
+        height: 5vh;
+        font-family: "Baloo Bhaijaan 2";
+        font-size: 25px;
+        border-radius: 10px;
+    }
+
+    .q-button {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .head {
+        color:#443628;
+        opacity: 0.8;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    #faqs-body button:hover {
+        transition: 0.5s;
+        background-color: #FFCB61;
+        width: 22%;
+    }
+
+    #leave-review button {
+        transition: 0.5s;
+    }
+
+    #leave-review button:hover {
+        background-color: #FFCB61;
+        transition: 0.5s;
+        width: 40.5%;
+    }
+    
+
+</style>
+
+<body>
+    <div id = "main">
+        <div id = "main-menu">
+            <header>
+                <img class = "logo" src="Img-Source\Whismers.png" alt="furrever-logo">
+                <nav>
+                    <p>HOME</p>
+                    <P>ABOUT US</P>
+                    <p>CONTACT US</p>
+                    <img onclick="navVisibility()" id = "menu-logo" class = "menu-logo" src="Img-Source\menu-sign.png" alt="menu-logo">
+                </nav>
+            </header>
+    
+            <div class="container">
+                <div id = "cat-header">
+                    <img src="Img-Source\header-1.png" alt="header-cat">
+                </div>
+
+                <img class="star1" src="Img-Source/star1.png" alt="star1">
+                <img class= "star2" src="Img-Source\star2.png" alt="star2">
+                <img class= "star3" src="Img-Source\star5.png" alt="star2">
+                <img class= "star4" src="Img-Source\star6.png" alt="star2">
+                <img class= "star5" src="Img-Source\star7.png" alt="star2">
+                <img class= "star6" src="Img-Source\star8.png" alt="star2">
+                <h1>
+                    Where your furrever companions await you.<br>
+                    Be a loving parent to your furry babies!
+                </h1>
+            </div>
+
+            <div id="cat-selection">
+                <div class="cat">
+                    <img class="cat1" src="Img-Source/sample3.png" alt="cat-3">
+                    <div class="overlay">Pumpkin</div>
+                </div>
+                <div class="cat">
+                    <img class="cat2" src="Img-Source/sample2.png" alt="cat-2">
+                    <div class="overlay">Mishmish</div>
+                </div>
+                <div class="cat">
+                    <img class="cat3" src="Img-Source/sample1.png" alt="cat-1">
+                    <div class="overlay">Orange</div>
+                </div>
+            </div>
+            
+            <h2 class = "pet-gallery">
+                CHECK OUT THE PET GALLERY
+            </h2>
+    
+            <div id ="lower-nav">
+                <div id = "options">
+                    <p id="review" onclick="optionVisibility('review')">REVIEWS</p>
+                    <p id="blogs" onclick="optionVisibility('blogs')">BLOGS</p>
+                    <p id="quiz" onclick="optionVisibility('quiz')">CAT COMPATIBILITY QUIZ</p>
+                    <p id="adoption" onclick="optionVisibility('adoption')">ADOPTION GUIDE</p>
+                    <p id="faqs" onclick="optionVisibility('faqs')">FAQs</p>
+                </div>
+
+                <div id = "review-body">
+                    <div id = "reviews">
+                        <div id = "inner-reviews">
+                            <div id="review1">
+                                <img src="Img-Source\stars.png" alt="stars">
+                                <p>This adoption center introduced me to my best friend of five years!<br><br>From the moment I walked in, I was greeted by a warm and inviting atmosphere, filled with friendly staff eager to help. They took the time to understand what I was looking for and guided me through the adoption process with care and patience. After meeting several cats, I found a little one who instantly stole my heart with her playful spirit and gentle demeanor.<br><br>The connection was undeniable, and I knew she was meant to be my companion. Over the years, she has filled my life with endless joy and laughter, from her mischievous antics to her soothing purrs during quiet moments. I can’t imagine my life without her; she has become an irreplaceable part of my family. Every day together is a new adventure, and I am forever grateful to the adoption center for bringing us together.<br><br>They provided me not just a pet, but a true friend, and I encourage anyone considering adoption to take that leap—it could lead to a lifelong bond that brings immeasurable happiness.</p>                                </p>
+                            </div>
+                            
+                                <div id = "leave-review">
+                                    <h2>LEAVE US A REVIEW!</h2>
+                                    <p>Enter your comments here:</p>
+                                    <form>
+                                    <input type="text" placeholder="I absolutely love cats..."><br>
+                                    <button type="submit">SUBMIT</button>
+                                    <button type="reset">RESET</button>
+                                    </form>
+                                </div>
+                        </div>
+                        
+                        <div class = "inner-big-review">
+                            <div class = "inner-reviews2">
+                                <div id="review2">
+                                    <img src="Img-Source\stars.png" alt="stars">
+                                    <p>The adoption process was so swift and easy! I am so happy to have found another baby to call my own!</p>
+                                </div>
+        
+                                <div id="review3">
+                                    <img src="Img-Source\stars.png" alt="stars">
+                                    <p>Adopting from this center changed my life! My new furry friend is a bundle of joy and has brought so much love into my home.</p>
+                                </div>
+                            </div>
+                            
+                            <div class = "inner-reviews2">
+                                <div id="review4">
+                                    <img src="Img-Source\stars.png" alt="stars">
+                                    <p>I was amazed at how caring the staff were! They helped match me with the perfect cat that fits my lifestyle. Highly recommend!</p>
+                                </div>
+                                
+                                <div id="review5">
+                                    <img src="Img-Source\stars.png" alt="stars">
+                                    <p>The moment I met my cat, I knew it was meant to be. The adoption process was straightforward, and now I can't imagine life without her!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id = "blogs-body">
+                    <h2>CLIENT VLOGS</h2>
+                    <div id = "inner-body">
+                        <div class = "container1">
+                            <div class = "post1">
+                                <img src="Img-Source\1.png" alt="blog1">
+                                <p class = "usernames">@karaMeowtsu</p>
+                                <p>My little babies sharing food!</p>
+                            </div>
+                            <div class = "post2">
+                                <img src="Img-Source\2.png" alt="blog2">
+                                <p class = "usernames">@mingming</p>
+                                <p>My grumpy senior cat in a costume... My kid cried.</p>
+                            </div>
+                            <div class = "post3">
+                                <img src="Img-Source\3.png" alt="blog3">
+                                <p class = "usernames">@spaghettiCat</p>
+                                <p>Spaghetti is on a walk, meeting other cats!</p>
+                            </div>
+                        </div>
+    
+                        <div class = "container2">
+                            <div class = "post4">
+                                <img src="Img-Source\4.png" alt="blog4">
+                                <p class = "usernames">@PurrgerKing</p>
+                                <p>We are going to Burger King to celebrate the<br>anniversary of Purrger's adoption.</p>
+                            </div>
+                            <div class = "post5">
+                                <img src="Img-Source\5.png" alt="blog5">
+                                <p class = "usernames">@MeowMe1</p>
+                                <p>My kitty finally has a friend. She is very happy now.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id = "quiz-body">
+                    <h2>CAT COMPATABILITY QUIZ<br></h2>
+                    <a href="https://www.quotev.com/quiz/16680539/what-kind-of-cat-are-you">
+                    <h2 class ="heading2">CLICK HERE TO KNOW WHICH CAT MATCHES YOUR VIBE!</h2><br><br>
+                    <video src="Img-Source\kitty-video.mp4" autoplay muted loop ></video>
+                    </a>
+                </div>
+
+                <div id = "adoption-body">
+                    <h3>ADOPTION GUIDE</h3>
+                    <div class = "adoption-container">
+                        <div id = "steps">
+                            <div class ="container3">
+                                <div class="step">
+                                    <p class = "num">1</p>
+                                    <p class = "detail">Answer the form below! This form tells us about your lifestyle, home environment, and experience with pets!</p>
+                                </div>
+                                <p class = "adoptionform">https://www.form/cat-adoption.meow</p>
+                            </div>
+    
+                            <div class="step">
+                                <p class = "num">2</p>
+                                <p class = "detail" >Our reputable team reviews your application form and update you within 2-3 days.</p>
+                            </div>
+    
+                            <div class = "step">
+                                <p class = "num">3</p>
+                                <p class = "detail">Meet and Greet with your potential pets!</p>
+                            </div>
+    
+                            <div class = "step">
+                                <p  class = "num">4</p>
+                                <p class = "detail">Finalize the adoption process! Welcome your furrever companions to your home!</p>
+                            </div>
+                        </div>
+    
+                        <div id = "contact">
+                            <h3>KEEP IN CONTACT!</h3>
+
+                            <p class = "head">Business Email:</p>
+                            <p class = "important">Purrever.Business@gmail.com</p>
+
+                            <p class = "head">Phone Number: </p>
+                            <p class = "important">+63 111-222-3334</p>
+
+                            <p class = "head">Post Office & Mail: </p>
+                            <p class = "important">Masamat, Mexico, San Fernando, Pampanga</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id = "faqs-body">
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                    <form>
+                        <input type="text" placeholder="Submit your Questions here!">
+                        <div class = "q-button">
+                            <button type="submit">SUBMIT</button>
+                            <button type = "reset">CANCEL</button>
+                        </div>
+                    </form>
+                    <div class = "faq-container">
+                        <div class = "left-body">
+                            <div class = "q1">
+                                <h3>What are your staff's availability hours?</h3>
+                                <p>Our wonderful team is available to help you from Monday to Saturday, 10 AM to 5 PM. Feel free to reach out during these hours with any questions you have about the adoption process or our cats. We can’t wait to assist you!</p>
+                            </div>
+                            <div class = "q1">
+                                <h3>What is the adoption process?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                            <div class = "q1">
+                                <h3>How much does it cost to adopt a cat?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                            <div class = "q1">
+                                <h3>Can I adopt a cat if I have other pets?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                        </div>
+                        <div class ="right-body">
+                            <div class = "q1">
+                                <h3> What should I consider before adopting a cat?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                            <div class = "q1">
+                                <h3>Are all cats up for adoption healthy?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                            <div class = "q1">
+                                <h3>Can I return a cat if it doesn’t work out?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                            <div class = "q1">
+                                <h3>How can I prepare my home for a new cat?</h3>
+                                <p>The journey begins with filling out an application about your lifestyle and what you’re looking for in a feline friend. After we review it, you’ll have a chance to meet our cats. If you find a match, we’ll guide you through the adoption agreement and get you ready to bring your new companion home!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+      </div>
+    
+      <div id = "navpane">
+        <div class ="nav-title">
+            <h1>NAVIGATION</h1>
+        </div>
+        <p>HOME</p>
+        <p>CAT GALLERY</p>
+        <p>BLOGS</p>
+        <p>REVIEWS</p>
+        <p>CAT COMPABILITY QUIZ</p>
+        <p>FAQs</p>
+        <p>ABOUT US</p>
+        <p>CONTACT US</p>
+      </div>
+    </div>
+</body>
+</html>
